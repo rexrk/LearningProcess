@@ -1,0 +1,50 @@
+class cicrle{
+    private float radius;
+    private float area;
+    private float perimeter;
+    float pi = 3.14f;
+    public void setRad(float r){
+        this.radius = r;
+    }
+    public void setArea(float a){
+        if (a == pi*radius*radius){
+            this.area = a;
+        } else {
+        System.out.println("Wrong Arguments");
+        System.out.println(pi*radius*radius);
+        }
+    }
+    public void setPerimeter(float p){
+        if (p == 2*pi*radius){
+            this.perimeter = p;
+        } else
+        System.out.println("Wrong Arguments");
+        System.out.printf("%.2f %n" , pi*radius);
+    }
+    
+    public float getRad(){
+        return radius;
+    }
+    public float getArea(){
+        return area;
+    }
+    public float getPerimeter(){
+        return perimeter;
+    }
+    
+}
+public class access_modifiers {
+
+    public static void main(String[] args) {
+        cicrle one = new cicrle();
+        one.setRad(5);
+        one.setArea(78.5f);
+        one.setPerimeter(35f);
+        System.out.println("====================");
+        System.out.println(one.getRad());
+        System.out.println(one.getArea());
+        System.out.println(one.getPerimeter());
+        
+    }
+    
+}
