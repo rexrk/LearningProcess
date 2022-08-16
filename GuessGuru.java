@@ -45,7 +45,7 @@ class GameFiles {
 
 public class guess_number {
 
-    public static void main(String[] args) {
+    public static void main(String[] gugu) {
         Random random = new Random(); // Random Number object
         Scanner scan = new Scanner(System.in); // Scanner Object
         GameFiles objFiles = new GameFiles(random.nextInt(101)); // Class Object with Num Constructor
