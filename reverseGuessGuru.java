@@ -22,8 +22,8 @@ class GameFiles {
     public int isCorrectNumber() {
 
         if (RandomNum < UserInput) {
-            // RandomNum++;                   //optional logic
-            RandomNum = (RandomNum + 1000) - RandomNum;
+            // RandomNum++;                   
+            RandomNum = (RandomNum + 1000) - RandomNum;    //optional logic
         } else if (RandomNum > UserInput) {
             RandomNum--;
         } else {
