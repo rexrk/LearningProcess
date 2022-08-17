@@ -27,7 +27,7 @@ class GameFiles {
         } else if (RandomNum > UserInput) {
             RandomNum--;
         } else {
-            System.out.print("\nSounds Right :0 ");
+            System.out.print("\n :0 Sounds Right ");
         }
         return RandomNum;
     }
