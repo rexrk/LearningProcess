@@ -1,65 +1,51 @@
-import java.util.Scanner;
-import java.time.chrono.IsoChronology;
 import java.util.Random;
-
+import java.util.Scanner;
+//think a number
+//genrate a random num
+//ask higher or lower
+//binary search
 class GameFiles {
-    int RandomNum;
-    private int UserInput;
-    private int noOfGuesses;
+    static Random rand = new Random();
+    static int RandomNum = rand.nextInt(1000);
 
-    GameFiles(int g) {  //constructor for Scanning UserInput
-        UserInput = g;
-    }
-
-    public int getUserInput() {
-        return UserInput;
-    }
-
-    public void SetRandom(int r) {
-        RandomNum = r;
-    }
-
-    public int isCorrectNumber() {
-
-        if (RandomNum < UserInput) {
-            // RandomNum++;                   
-            RandomNum = (RandomNum + 1000) - RandomNum;    //optional logic
-        } else if (RandomNum > UserInput) {
-            RandomNum--;
-        } else {
-            System.out.print("\n :0 Sounds Right ");
-        }
+    public int getRandomNumber() {
         return RandomNum;
     }
 
-    public void setGuess() {
-        noOfGuesses++;
+    public static int isCorrectNumber(int userInput) {
+        // Binary Search
+        int first=0;
+        int last = 1000;
+        if (userInput == 1) {
+            first = RandomNum + 1;
+        } else if (userInput == 2) {
+            last = RandomNum - 1;
+        } else if( userInput == 3){
+            System.out.println("oki Its: " + RandomNum);
+            System.exit(0);
+        }
+        System.out.println("First:"+ first + "      Last:" + last);
+        int mid = (first + last) / 2;
+        RandomNum = mid;
+        return mid;
     }
-
-    public int getGuess() {
-        return noOfGuesses;
-    }
-
 }
 
 public class guess_numberAI {
 
-    public static void main(String[] args) {
-        Random random = new Random(); // Random Number object
-        Scanner scan = new Scanner(System.in); // Scanner Object
+    public static void main(String[] gugus) {
+        GameFiles obFiles = new GameFiles();
+        Scanner scan = new Scanner(System.in);
+        int userInput = 0;
+        System.out.println("Think a Number:>>>>>>>>");
+        System.out.print("Is this the number ? -> ");
+        System.out.println(obFiles.getRandomNumber());
 
-        System.out.print("Enter a Number : ");
-        GameFiles objFiles = new GameFiles(scan.nextInt()); // Class Object with scanner constructor
-        System.out.println(objFiles.getUserInput());
-        // System.out.println(objFiles.getRandomNumber());
-
-        while (objFiles.isCorrectNumber() != objFiles.getUserInput()) {
-            objFiles.setGuess();
-            System.out.print("Random number generating: ");
-            objFiles.SetRandom(random.nextInt(1000));
-            System.out.println(objFiles.isCorrectNumber());
+        while (userInput != 3) {
+            System.out.println("1.Higher 2.Lower 3.Thats it");
+            System.out.println("Is this the number ? ->" + GameFiles.isCorrectNumber(scan.nextInt()));
         }
-
-        System.out.println("\n\t \tAI guessed in " + objFiles.getGuess() + " tries.");
+        scan.close();
     }
+
 }
