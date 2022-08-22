@@ -16,7 +16,7 @@ class GameFiles {
         UserInput = scan.nextInt();
     }
 
-    boolean isCorrectNumber() {
+    boolean isCorrectNumber () {
         boolean isCorrectNumber = false;
         noOfGuesses++;
 
@@ -25,7 +25,7 @@ class GameFiles {
         } else if (UserInput < RandomNum) {
             System.out.println("Go Higher <<");
         } else {
-            System.out.println("Sounds Right :0 ");
+            System.out.println("Sounds Right :0 , It was: " + RandomNum);
             System.out.println("You guessed in " + noOfGuesses + " tries.");
             isCorrectNumber = true;
         }
@@ -37,18 +37,14 @@ class GameFiles {
 
 public class guess_number {
 
-    public static void main(String[] args) {
-        
-        
-        GameFiles objFiles = new GameFiles(); // Class Object with Num Constructor
-
+    public static void main(String[] args) {       
+        GameFiles objFiles = new GameFiles(); // Class Object
         System.out.println("Random number generated!");
         // System.out.println(objFiles.getRandomNumber());
 
-        do {
+        while (objFiles.isCorrectNumber() == false){
             System.out.print("Guess The Number : ");
             objFiles.SetInput();
-        } while (objFiles.isCorrectNumber() == false);
-        
+        } 
     }
 }
